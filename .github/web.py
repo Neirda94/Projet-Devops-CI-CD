@@ -1,7 +1,11 @@
-import http.server
+from flask import Flask
 
-def httpServer():
-    handler = http.server.SimpleHTTPRequestHandler
-    with http.server.HTTPServer(("", 8000), handler) as httpd:
-        print("serving at port", 8000)
-        httpd.serve_forever()
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'This is my web server'
+    #return 'Test bug github workflow'
+
+if __name__ == '__main__':
+    app.run(debug=True)
