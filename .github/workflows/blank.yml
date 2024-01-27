@@ -47,12 +47,12 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSHPRIVATEKEY }}
       
-      - name: Build Docker
-        run: |
-          docker build -t adbg/devops:latest .
+    - name: Build Docker
+      run: |
+        docker build -t adbg/devops:latest .
 
-      - name: Send image to Dockerhub
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push adbg/devops:latest
+    - name: Send image to Dockerhub
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push adbg/devops:latest
 
