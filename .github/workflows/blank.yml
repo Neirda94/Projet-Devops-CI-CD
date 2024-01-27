@@ -42,10 +42,11 @@ jobs:
         sudo apt-get install -y ansible
 
     - name: Deploy Web.py
-      run: ansible-playbook -i "${{ secrets.AZURE_VM_IP }}," \
-                             -u ${{ secrets.AZURE_VM_USER }} \
-                             --private-key ~/.ssh/id_rsa \
-                             deployment.yaml
+      run: ansible-playbook -i "${{ secrets.AZURE_VM_IP }},"
+                         -u "${{ secrets.AZURE_VM_USER }}"
+                         --private-key ~/.ssh/id_rsa
+                         deployment.yaml
+
 
     
 
