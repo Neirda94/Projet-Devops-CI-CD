@@ -4,5 +4,5 @@
   tasks:
     - name: Copy file web.py
       synchronize:
-        src: web.py
+        src: ./web.py
         dest: /home/devopsadmin/web.py
