@@ -35,7 +35,15 @@ jobs:
         ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_IP }} "whoami"
       env:
         SSHPRIVATEKEY: ${{ secrets.SSHPRIVATEKEY }}
+        
+    - name: Installation Ansible
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ansible
 
+    - name: Deploy Ansible playbook
+      run: |
+        ansible-playbook -i inventory.ini deployment.yaml --private-key ~/.ssh/id_rsa
 
     
 

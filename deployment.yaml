@@ -1,0 +1,8 @@
+- name: Send Python file 
+  hosts: Devops
+  become_user: devopsadmin
+  tasks:
+    - name: Copy file web.py
+      synchronize:
+        src: ./web.py
+        dest: /home/devopsadmin/web.py
