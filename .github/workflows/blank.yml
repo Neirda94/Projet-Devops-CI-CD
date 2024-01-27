@@ -29,9 +29,10 @@ jobs:
 
     - name: Test connexion with our Azure VM
       run: |
-        echo "$SSHPRIVATEKEY" > ssh_key.pem
-        chmod 600 ssh_key.pem
-        ssh -i ssh_key.pem -o StrictHostKeyChecking=no devopsadmin@172.205.208.129 echo "SSH connection successful"
+        echo "$SSHPRIVATEKEY" > $GITHUB_WORKSPACE/ssh_key.pem
+        chmod 600 $GITHUB_WORKSPACE/ssh_key.pem
+        ssh -i $GITHUB_WORKSPACE/ssh_key.pem -o StrictHostKeyChecking=no devopsadmin@172.205.208.129 "echo 'SSH connection successful'"
 
-      
+
+    
 
