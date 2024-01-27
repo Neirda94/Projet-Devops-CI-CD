@@ -29,9 +29,7 @@ jobs:
 
     - name: Test connexion with our Azure VM
       run: |
-        echo "$SSHPRIVATEKEY" > ssh_key.pem
-        chmod 600 ssh_key.pem
-        ssh -i ssh_key.pem devopsadmin@172.205.208.129  echo "SSH successful"
+        ssh -i ${{ secrets.SSHPRIVATEKEY }} devopsadmin@172.205.208.129  echo "SSH successful"
 
       
 
