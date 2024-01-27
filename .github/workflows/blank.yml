@@ -43,5 +43,7 @@ jobs:
 
     - name: Deploy Web.py
       run: ansible-playbook -i "./inventory.ini" -u "devopsadmin" --private-key ~/.ssh/id_rsa deployment.yaml
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSHPRIVATEKEY }}
     
 
