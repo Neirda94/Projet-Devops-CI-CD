@@ -27,9 +27,14 @@ jobs:
       run: |
         python -m pytest test-unitaire.py
 
-    - name: Test connexion with our Azure VM
+    - name: Set up SSH
       run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_IP }} "whoami"
+        mkdir -p ~/.ssh
+        echo "$SSHPRIVATEKEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no ${{ secrets.AZURE_VM_USER }}@${{ secrets.AZURE_VM_IP }} "whoami"
+      env:
+        SSHPRIVATEKEY: ${{ secrets.SSHPRIVATEKEY }}
 
 
     
