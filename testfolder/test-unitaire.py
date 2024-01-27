@@ -1,4 +1,4 @@
-from app import app
+from web import app
 import unittest
 
 class test_unit(unittest.TestCase):
