@@ -58,5 +58,5 @@ jobs:
 
     - name: Déploiement de l'image sur la VM azure
       run: |
-        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no devopsadmin@${{ secrets.AZURE_VM_IP }} docker pull adbg/devops:latest
-        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no devopsadmin@${{ secrets.AZURE_VM_IP }} docker run -d -p 80:5000 adbg/devops:latest
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no devopsadmin@${{ secrets.AZURE_VM_IP }} sudo docker pull adbg/devops:latest
+        ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no devopsadmin@${{ secrets.AZURE_VM_IP }} sudo docker run -d -p 80:5000 adbg/devops:latest
