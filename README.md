@@ -17,3 +17,10 @@ Mise à jour sur une VM de prod :
 
 Déploiement de l'application via Docker :
 
+- Utilisation de Docker pour créer une image, créer un repository et l'envoyer sur notre DockerHub
+- Déploiement de l'image sur notre VM Azure 
+
+Technologies utilisées :
+Ansible / Docker / Azure Virtual Machine / Pytest / GitHub 
+
+
